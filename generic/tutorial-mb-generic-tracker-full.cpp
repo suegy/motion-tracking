@@ -118,6 +118,7 @@ int main(int argc, char **argv)
         me.setMu2(0.5);
         me.setSampleStep(4);
         tracker.setMovingEdge(me);
+        tracker.setGoodMovingEdgesRatioThreshold(0.3);
         //! [Set moving-edges parameters]
       }
 
@@ -139,13 +140,13 @@ int main(int argc, char **argv)
 #endif
 
       //! [Set camera parameters]
-      //cam.initPersProjWithoutDistortion(839.21470, 839.44555, 400, 225);
+      cam.initPersProjWithoutDistortion(839.21470, 839.44555, 400, 225);
       // f=0.00292m focal length for a gopro is 2.92mm; h=0.0116m w=0.0116m based on image size of 800x450
       float px = 0.251724; // px = focal length in meters divded by pixel height in meters 
       float py = 0.251724; // py = focal length in meters divded by pixel width in meters  
       float u0 = 400;
       float v0 = 225;
-      cam.initPersProjWithoutDistortion(px, py, u0, v0);
+      //cam.initPersProjWithoutDistortion(px, py, u0, v0);
       tracker.setCameraParameters(cam);
       //! [Set camera parameters]
 
@@ -214,9 +215,10 @@ int main(int argc, char **argv)
     	{
         for(int j=0; j<3; j++)
         {
-            fout<<cMo[i][j]<<"\t";
+	   // cout<<"testing output["<<i<<","<<j<<"]:"<<cMo[i][j];
+           // fout<<cMo[i][j]<<",\t";
         }
-        fout<<",\t";
+        fout<<";\t";
       }
       fout<< std::endl;
 
