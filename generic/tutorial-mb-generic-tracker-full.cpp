@@ -139,7 +139,7 @@ int main(int argc, char **argv)
 #endif
 
       //! [Set camera parameters]
-      //cam.initPersProjWithoutDistortion(839.21470, 839.44555, 325.66776, 243.69727);
+      //cam.initPersProjWithoutDistortion(839.21470, 839.44555, 400, 225);
       // f=0.00292m focal length for a gopro is 2.92mm; h=0.0116m w=0.0116m based on image size of 800x450
       float px = 0.251724; // px = focal length in meters divded by pixel height in meters 
       float py = 0.251724; // py = focal length in meters divded by pixel width in meters  

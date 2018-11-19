@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./tutorial-mb-tracker --video Robbox.mpg --tracker 0
+./tutorial-mb-generic-tracker-full --video Robbox.mpg --tracker 0
