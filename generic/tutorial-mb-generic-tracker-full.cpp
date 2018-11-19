@@ -141,10 +141,10 @@ int main(int argc, char **argv)
       //! [Set camera parameters]
       //cam.initPersProjWithoutDistortion(839.21470, 839.44555, 325.66776, 243.69727);
       // f=0.00292m focal length for a gopro is 2.92mm; h=0.0116m w=0.0116m based on image size of 800x450
-      px = 0.251724; // px = focal length in meters divded by pixel height in meters 
-      py = 0.251724; // py = focal length in meters divded by pixel width in meters  
-      u0 = 400;
-      v0 = 225;
+      float px = 0.251724; // px = focal length in meters divded by pixel height in meters 
+      float py = 0.251724; // py = focal length in meters divded by pixel width in meters  
+      float u0 = 400;
+      float v0 = 225;
       cam.initPersProjWithoutDistortion(px, py, u0, v0);
       tracker.setCameraParameters(cam);
       //! [Set camera parameters]
@@ -189,12 +189,12 @@ int main(int argc, char **argv)
 
     cv::Mat m = cv::Mat::eye(5,5,CV_32FC1);
 
-    const char* filename = objectname + "-movement.txt";
+    std::string filename = objectname + "-movement.txt";
     ofstream fout(filename);
 
     if(!fout)
     {
-        cout<<"File For Writing Movement Not Opened"<<endl;  return;
+        cout<<"File For Writing Movement Not Opened"<<endl;  return -1;
     }
 
     while (!g.end()) {
@@ -214,11 +214,11 @@ int main(int argc, char **argv)
     	{
         for(int j=0; j<3; j++)
         {
-            fout<<cMo.at<float>(i,j)<<"\t";
+            fout<<cMo[i][j]<<"\t";
         }
         fout<<",\t";
       }
-      fout<<endln;
+      fout<< std::endl;
 
       //! [Display]
       vpDisplay::displayFrame(I, cMo, cam, 0.025, vpColor::none, 3);

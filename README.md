@@ -10,11 +10,12 @@ This repo is a configuration of the VISP hybrid tracker setup.
  * [OpenCV](https://docs.opencv.org/3.4/d9/df8/tutorial_root.html)
  * [Subversion](https://www.tutorialspoint.com/svn/)
  * [Git](https://git-scm.com/downloads)
+ * cmake
 
 
 Installing OpenCV and all required packages is straight forward in Ubuntu. The setup should work on all systems with correctly installed VISP 3.1.0_1 and OpenCV 3.x.x
 
-`$ sudo apt get install libvisp-dev`
+`$ sudo apt get install libvisp-dev cmake`
 
 add the basic files from VISP which we are using:
 
