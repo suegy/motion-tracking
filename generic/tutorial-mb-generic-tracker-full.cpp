@@ -211,14 +211,18 @@ int main(int argc, char **argv)
       tracker.getCameraParameters(cam);
       tracker.display(I, cMo, cam, vpColor::red, 2);
       //! Write position to file 
-      for(int i=0; i<4; i++) //cMo or I need to be used instead
+      for(int i=0; i<3; i++) //cMo or I need to be used instead
     	{
-        for(int j=0; j<3; j++)
+        for(int j=0; j<4; j++)
         {
-	   // cout<<"testing output["<<i<<","<<j<<"]:"<<cMo[i][j];
-           // fout<<cMo[i][j]<<",\t";
+	    //cout<<"testing output["<<i<<","<<j<<"]:"<<cMo[i][j];
+            fout<<""<<cMo[i][j];
+            if (j < 3)
+            {
+              fout<<", ";
+            }
         }
-        fout<<";\t";
+        fout<<"; ";
       }
       fout<< std::endl;
 
